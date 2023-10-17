@@ -1,0 +1,21 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>AZTERKETA</title>
+        <!--<link rel="stylesheet" href='{% static "css/blog.css" %}'>-->
+    </head>
+    <body>
+        <h1>Pertsona bat gehitzeko ondorengo formularioa bete</h1>
+        <br>
+
+        <form action="aldatupertsona/" method="POST">
+            {% csrf_token%}
+            Pertsonaren izena:<input type="text" name="izena" value="{{pertsona.izena}}"><br><br>
+            Emaila:<input type="text" name="emaila" value="{{pertsona.emaila}}"><br><br>
+            NAN:<input type="text" name="nan" value="{{pertsona.nan}}"><br><br>
+            <button type="submit" value="Submit">Pertsona aldatu</button>
+        </form>
+        
+    </body>
+</html>

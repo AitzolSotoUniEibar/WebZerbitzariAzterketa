@@ -1,0 +1,82 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>AZTERKETA</title>
+        <!--<link rel="stylesheet" href='{% static "css/blog.css" %}'>-->
+    </head>
+    <body>
+        <table border="1">
+            <h1>Pertsonak</h1>
+            {% for pertsona in pertsonak %}
+            <tr>
+                <td>
+
+                    <div>
+                        <p><h2>{{pertsona.izena}}</h2></p>
+                        <p>{{pertsona.emaila}}</p>
+                        <p>{{pertsona.nan}}</p>
+                    </div>
+                    
+                </td>
+                
+                <td>
+                    <a href="updatepertsona/{{pertsona.id}}" color="red">Aldatu</a>
+                </td>
+                <td>
+                    <a href="deletepertsona/{{pertsona.id}}" color="red">Ezabatu</a>
+                </td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+        <a href="/addpertsona">Gehitu Pertsona</a>
+
+        <table border="1">
+ 
+            <h1>Etxeak</h1>
+            {% for etxea in etxeak %}
+            <tr>
+                <td>
+
+                    <div>
+                        <p><h2>{{etxea.izena}}</h2></p>
+                        <p>{{etxea.herria}}</p>
+                        <p>{{etxea.pertsona_kop}}</p>
+                    </div>
+                    
+                </td>
+                
+                <td>
+                    <a href="updateetxea/{{etxea.id}}" color="red">Aldatu</a>
+                </td>
+                <td>
+                    <a href="deleteetxea/{{etxea.id}}" color="red">Ezabatu</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <a href="/addetxea">Gehitu Etxea</a>
+
+        <table border="1">
+ 
+            <h1>Alokairuak</h1>
+            {% for alokairua in alokairuak %}
+            <tr>
+                <td>
+
+                    <div>
+                        <p><h2>{{alokairua.etxea.izena}}</h2></p>
+                        <p>{{alokairua.pertsona.izena}}</p>
+                        <p>{{alokairua.alokatze_hasiera}}</p>
+                        <p>{{alokairua.alokatze_amaiera}}</p>
+                    </div>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="alokatu/">Alokatu</a>
+    </body>
+</html>

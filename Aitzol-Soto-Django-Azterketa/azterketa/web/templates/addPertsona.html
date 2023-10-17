@@ -1,0 +1,21 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>AZTERKETA</title>
+        <!--<link rel="stylesheet" href='{% static "css/blog.css" %}'>-->
+    </head>
+    <body>
+        <h1>Pertsona bat gehitzeko ondorengo formularioa bete</h1>
+        <br>
+
+        <form action="gehitupertsona/" method="POST">
+            {% csrf_token%}
+            Pertsonaren izena:<input type="text" name="izena"><br><br>
+            Emaila:<input type="text" name="emaila"><br><br>
+            NAN:<input type="text" name="nan"><br><br>
+            <button type="submit" value="Submit">Pertsona sortu</button>
+        </form>
+        
+    </body>
+</html>

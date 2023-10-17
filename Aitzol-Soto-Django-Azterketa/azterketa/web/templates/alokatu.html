@@ -1,0 +1,32 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>AZTERKETA</title>
+        <!--<link rel="stylesheet" href='{% static "css/blog.css" %}'>-->
+    </head>
+    <body>
+        <h1>Etxe bat alokatzeko ondorengo formularioa bete</h1>
+        <br>
+
+        <form action="alokatuetxea/" method="POST">
+            {% csrf_token%}
+            Etxea:
+            <select name="etxea" id="etxea">
+                {% for etxea in etxeak %}
+                <option value="{{etxea.izena}}">{{etxea.izena}}</option>
+                {% endfor %}
+            </select><br><br>
+            Pertsona:
+            <select name="pertsona" id="pertsona">
+                {% for pertsona in pertsonak %}
+                <option value="{{pertsona.izena}}">{{pertsona.izena}}</option>
+                {% endfor %}
+            </select><br><br>
+            Alokatze hasiera:<input type="date" name="alokatze_hasiera"><br><br>
+            Alokatze amaiera:<input type="date" name="alokatze_amaiera"><br><br>
+            <button type="submit" value="Submit">Alokatu</button>
+        </form>
+        
+    </body>
+</html>

@@ -1,0 +1,21 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>AZTERKETA</title>
+        <!--<link rel="stylesheet" href='{% static "css/blog.css" %}'>-->
+    </head>
+    <body>
+        <h1>Etxe bat gehitzeko ondorengo formularioa bete</h1>
+        <br>
+
+        <form action="aldatuetxea/" method="POST">
+            {% csrf_token%}
+            Etxearen izena:<input type="text" name="izena" value="{{etxea.izena}}"><br><br>
+            Herria:<input type="text" name="herria" value="{{etxea.herria}}"><br><br>
+            Pertsona Kopurua:<input type="text" name="pertsona_kop" value="{{etxea.pertsona_kop}}"><br><br>
+            <button type="submit" value="Submit">Etxea aldatu</button>
+        </form>
+        
+    </body>
+</html>
